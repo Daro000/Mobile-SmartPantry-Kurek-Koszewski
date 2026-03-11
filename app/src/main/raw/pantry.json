@@ -1,0 +1,142 @@
+[
+  {
+    "id": "0001",
+    "nazwa": "Woda destylowana",
+    "ilosc": 850,
+    "jednostka": "l",
+    "kategoria": "zasoby-podstawowe"
+  },
+  {
+    "id": "0002",
+    "nazwa": "Tlen ciekły",
+    "ilosc": 1240,
+    "jednostka": "l",
+    "kategoria": "zasoby-podstawowe"
+  },
+  {
+    "id": "0003",
+    "nazwa": "Marchew liofilizowana",
+    "ilosc": 42,
+    "jednostka": "kg",
+    "kategoria": "żywność"
+  },
+  {
+    "id": "0004",
+    "nazwa": "Ziemniaki suszone",
+    "ilosc": 38,
+    "jednostka": "kg",
+    "kategoria": "żywność"
+  },
+  {
+    "id": "0005",
+    "nazwa": "Białko sojowe teksturyzowane",
+    "ilosc": 65,
+    "jednostka": "kg",
+    "kategoria": "żywność"
+  },
+  {
+    "id": "0006",
+    "nazwa": "Mąka owsiana",
+    "ilosc": 28,
+    "jednostka": "kg",
+    "kategoria": "żywność"
+  },
+  {
+    "id": "0007",
+    "nazwa": "Witamina C (tabletki)",
+    "ilosc": 1200,
+    "jednostka": "szt",
+    "kategoria": "suplementy"
+  },
+  {
+    "id": "0008",
+    "nazwa": "Multiwitamina",
+    "ilosc": 950,
+    "jednostka": "szt",
+    "kategoria": "suplementy"
+  },
+  {
+    "id": "0009",
+    "nazwa": "Śruby M6 × 20 mm",
+    "ilosc": 380,
+    "jednostka": "szt",
+    "kategoria": "części zamienne"
+  },
+  {
+    "id": "0010",
+    "nazwa": "Nakrętki M8",
+    "ilosc": 520,
+    "jednostka": "szt",
+    "kategoria": "części zamienne"
+  },
+  {
+    "id": "0011",
+    "nazwa": "Uszczelki silikonowe 50 mm",
+    "ilosc": 85,
+    "jednostka": "szt",
+    "kategoria": "części zamienne"
+  },
+  {
+    "id": "0012",
+    "nazwa": "Taśma teflonowa 19 mm",
+    "ilosc": 24,
+    "jednostka": "rolki",
+    "kategoria": "części zamienne"
+  },
+  {
+    "id": "0013",
+    "nazwa": "Baterie litowe 18650",
+    "ilosc": 210,
+    "jednostka": "szt",
+    "kategoria": "elektronika"
+  },
+  {
+    "id": "0014",
+    "nazwa": "Kable zasilające 2×1,5 mm²",
+    "ilosc": 180,
+    "jednostka": "m",
+    "kategoria": "elektronika"
+  },
+  {
+    "id": "0015",
+    "nazwa": "Mydło w płynie antybakteryjne",
+    "ilosc": 68,
+    "jednostka": "l",
+    "kategoria": "higiena"
+  },
+  {
+    "id": "0016",
+    "nazwa": "Pasta do zębów",
+    "ilosc": 45,
+    "jednostka": "tubki",
+    "kategoria": "higiena"
+  },
+  {
+    "id": "0017",
+    "nazwa": "Worki na odpady 120 l",
+    "ilosc": 320,
+    "jednostka": "szt",
+    "kategoria": "utrzymanie czystości"
+  },
+  {
+    "id": "0018",
+    "nazwa": "Środki dezynfekujące (spray)",
+    "ilosc": 110,
+    "jednostka": "l",
+    "kategoria": "utrzymanie czystości"
+  },
+  {
+    "id": "0019",
+    "nazwa": "Folia aluminiowa 30 cm",
+    "ilosc": 15,
+    "jednostka": "rolki",
+    "kategoria": "kuchnia"
+  },
+  {
+    "id": "0020",
+    "nazwa": "Sól jodowana",
+    "ilosc": 22,
+    "jednostka": "kg",
+    "kategoria": "żywność"
+  }
+]
