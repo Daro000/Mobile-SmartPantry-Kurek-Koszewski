@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
@@ -10,28 +9,53 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/Tytul"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Red Planet Pantry!"
-        android:textSize="40dp"
-        android:textStyle="bold"
+        android:text="🔴 Red Planet Pantry"
         android:gravity="center"
-        />
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:padding="16dp"
+        android:textSize="22sp"
+        android:textStyle="bold"/>
+
+    <ListView
+        android:id="@+id/listViewProducts"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:overScrollMode="never" />
-    <Button
-        android:id="@+id/buttonDodajProdukt"
-        android:layout_width="wrap_content"
+        android:dividerHeight="4dp"
+        android:choiceMode="singleChoice"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Dodaj produkt"
-        android:layout_marginTop="16dp"
-        android:padding="12dp"
-        android:textSize="16dp"
-        />
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <Button
+            android:id="@+id/btnDodaj"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Dodaj produkt"/>
+
+        <Button
+            android:id="@+id/btnPlus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="#4CAF50"
+            android:text="+ Zwiększ"/>
+
+        <Button
+            android:id="@+id/btnMinus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="#F44336"
+            android:text="– Zmniejsz"/>
+
+    </LinearLayout>
 
 </LinearLayout>
