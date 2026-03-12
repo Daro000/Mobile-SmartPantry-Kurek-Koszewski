@@ -14,14 +14,7 @@ import kotlinx.serialization.json.Json
 import java.io.File
 
 
-@Serializable
-data class Product(
-    val id: String,
-    val nazwa: String,
-    val ilosc: Int,
-    val jednostka: String,
-    val kategoria: String
-)
+
 
 class MainActivity : AppCompatActivity() {
 
