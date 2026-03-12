@@ -17,6 +17,67 @@
         android:textSize="22sp"
         android:textStyle="bold"/>
 
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="Szukaj produktu..."/>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+            <Button
+                android:id="@+id/btnFilterAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wszystkie"/>
+
+            <Button
+                android:id="@+id/btnFilterFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Food"/>
+
+            <Button
+                android:id="@+id/btnFilterLifeSupport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Life Support"/>
+
+            <Button
+                android:id="@+id/btnFilterTools"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Tools"/>
+
+            <Button
+                android:id="@+id/btnFilterMedicine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Medicine"/>
+
+            <Button
+                android:id="@+id/btnFilterFuel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Fuel"/>
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
     <ListView
         android:id="@+id/listViewProducts"
         android:layout_width="match_parent"
@@ -36,7 +97,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Dodaj produkt"/>
+            android:text="Dodaj"/>
 
         <Button
             android:id="@+id/btnPlus"
