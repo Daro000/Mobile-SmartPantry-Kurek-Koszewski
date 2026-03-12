@@ -3,70 +3,55 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#EEEEEE"
+    android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:padding="12dp"
-    android:layout_marginBottom="1dp"
-    >
-    <TextView
-        android:id="@+id/tv_id"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="0001"
-        android:textSize="14sp"
-        android:paddingHorizontal="6dp"
-        android:gravity="center"
-        android:textColor="#212529"
-        android:maxLines="1"
-        android:ellipsize="end" />
+    android:padding="10dp">
 
+    <ImageView
+        android:id="@+id/ivProductImage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="10dp"
+        android:src="@android:drawable/ic_menu_help"
+        android:contentDescription="Ikona produktu"/>
 
-    <TextView
-        android:id="@+id/tv_nazwa"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="2.5"
-        android:text="Woda destylowana"
-        android:textSize="14sp"
-        android:paddingHorizontal="6dp"
-        android:gravity="start|center_vertical"
-        android:textColor="#212529"
-        android:maxLines="2"
-        android:ellipsize="end" />
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_ilosc"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="850"
-        android:textSize="14sp"
-        android:paddingHorizontal="6dp"
-        android:gravity="end|center_vertical"
-        android:textColor="#0d6efd"
-        android:maxLines="1" />
+        <TextView
+            android:id="@+id/tvId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:textColor="#888888"
+            android:text="#0001"/>
 
-    <TextView
-        android:id="@+id/tv_jednostka"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.8"
-        android:text="l"
-        android:textSize="14sp"
-        android:paddingHorizontal="6dp"
-        android:gravity="center"
-        android:textColor="#6c757d" />
+        <TextView
+            android:id="@+id/tvNazwa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="Nazwa produktu"/>
 
-    <TextView
-        android:id="@+id/tv_kategoria"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1.7"
-        android:text="zasoby-podstawowe"
-        android:textSize="13sp"
-        android:paddingHorizontal="6dp"
-        android:gravity="center"
-        android:textColor="#495057"
-        android:maxLines="1"
-        android:ellipsize="end" />
+        <TextView
+            android:id="@+id/tvIlosc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="100 kg"/>
+
+        <TextView
+            android:id="@+id/tvKategoria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#555555"
+            android:text="Food"/>
+
+    </LinearLayout>
+
 </LinearLayout>
