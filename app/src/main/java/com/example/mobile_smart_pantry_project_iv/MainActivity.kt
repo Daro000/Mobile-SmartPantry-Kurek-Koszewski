@@ -3,6 +3,7 @@ package com.example.mobile_smart_pantry_project_iv
 import android.app.AlertDialog
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val productList = mutableListOf<Product>()
+    private val displayList = mutableListOf<Product>()
     private lateinit var adapter: ProductAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        adapter = ProductAdapter(this, productList)
+        adapter = ProductAdapter(this, displayList)
         binding.listViewProducts.adapter = adapter
 
         val inventoryFile = File(filesDir, "inventory.json")
@@ -44,45 +46,28 @@ class MainActivity : AppCompatActivity() {
             productList.addAll(loadFromRaw())
             saveProducts()
         }
-        adapter.notifyDataSetChanged()
+        odswiezListe(productList)
 
         binding.btnDodaj.setOnClickListener {
             showAddProductDialog()
         }
 
         binding.btnPlus.setOnClickListener {
-            val position = binding.listViewProducts.checkedItemPosition
-            if (position < 0) {
-                Toast.makeText(this, "Wybierz produkt z listy", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            val staryProdukt = productList[position]
-            productList[position] = staryProdukt.copy(ilosc = staryProdukt.ilosc + 1)
-            adapter.notifyDataSetChanged()
-            saveProducts()
+            zmienIlosc(+1)
         }
 
         binding.btnMinus.setOnClickListener {
-            val position = binding.listViewProducts.checkedItemPosition
-            if (position < 0) {
-                Toast.makeText(this, "Wybierz produkt z listy", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            val staryProdukt = productList[position]
-            if (staryProdukt.ilosc > 0) {
-                productList[position] = staryProdukt.copy(ilosc = staryProdukt.ilosc - 1)
-                adapter.notifyDataSetChanged()
-                saveProducts()
-            }
+            zmienIlosc(-1)
         }
 
         binding.listViewProducts.setOnItemLongClickListener { _, _, position, _ ->
+            val produkt = displayList[position]
             AlertDialog.Builder(this)
                 .setTitle("Usuń produkt")
-                .setMessage("Czy na pewno chcesz usunąć ${productList[position].nazwa}?")
+                .setMessage("Czy na pewno chcesz usunąć ${produkt.nazwa}?")
                 .setPositiveButton("Usuń") { _, _ ->
-                    productList.removeAt(position)
-                    adapter.notifyDataSetChanged()
+                    productList.remove(produkt)
+                    odswiezListe(productList)
                     saveProducts()
                     Toast.makeText(this, "Usunięto produkt", Toast.LENGTH_SHORT).show()
                 }
@@ -90,6 +75,49 @@ class MainActivity : AppCompatActivity() {
                 .show()
             true
         }
+
+        binding.btnFilterAll.setOnClickListener { odswiezListe(productList) }
+        binding.btnFilterFood.setOnClickListener { filteruj("Food") }
+        binding.btnFilterLifeSupport.setOnClickListener { filteruj("Life Support") }
+        binding.btnFilterTools.setOnClickListener { filteruj("Tools") }
+        binding.btnFilterMedicine.setOnClickListener { filteruj("Medicine") }
+        binding.btnFilterFuel.setOnClickListener { filteruj("Fuel") }
+
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?) = false
+            override fun onQueryTextChange(newText: String?): Boolean {
+                val szukana = newText.orEmpty().lowercase()
+                odswiezListe(productList.filter { it.nazwa.lowercase().contains(szukana) })
+                return true
+            }
+        })
+    }
+
+    private fun zmienIlosc(zmiana: Int) {
+        val position = binding.listViewProducts.checkedItemPosition
+        if (position < 0) {
+            Toast.makeText(this, "Wybierz produkt z listy", Toast.LENGTH_SHORT).show()
+            return
+        }
+        val produkt = displayList[position]
+        val nowaIlosc = produkt.ilosc + zmiana
+        if (nowaIlosc < 0) return
+        val zaktualizowany = produkt.copy(ilosc = nowaIlosc)
+        val index = productList.indexOf(produkt)
+        productList[index] = zaktualizowany
+        displayList[position] = zaktualizowany
+        adapter.notifyDataSetChanged()
+        saveProducts()
+    }
+
+    private fun filteruj(kategoria: String) {
+        odswiezListe(productList.filter { it.kategoria == kategoria })
+    }
+
+    private fun odswiezListe(lista: List<Product>) {
+        displayList.clear()
+        displayList.addAll(lista)
+        adapter.notifyDataSetChanged()
     }
 
     private fun showAddProductDialog() {
@@ -125,9 +153,8 @@ class MainActivity : AppCompatActivity() {
             )
 
             productList.add(nowyProdukt)
-            adapter.notifyDataSetChanged()
+            odswiezListe(productList)
             saveProducts()
-
             Toast.makeText(this, "Dodano: $nazwa", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
         }
